@@ -1,0 +1,978 @@
+@charset "utf-8";
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+/*common*/
+*{margin:0; padding: 0;}
+ol,ul{list-style: none;}
+a{outline: 0; text-decoration:none; color: #000;}
+img{border: 0; width: 100%; height: 100%;}
+.hide{display: none;}
+
+html,body{width: 100%; height: 100%; font-family: 'NanumSquare', sans-serif;}
+
+#wrap{
+	position: relative;
+	width: 100%;
+	height: 100%;
+    overflow: hidden;
+}
+
+/*헤더*/ /*헤더*/ /*헤더*/ /*헤더*/
+header{
+    position: fixed; z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #222;
+
+    nav{
+        position: relative; z-index: 3;
+        max-width: 1020px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+        background: #222;
+        box-sizing: border-box;
+
+        & > ul{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            line-height: 50px;
+
+            & > li{
+                color: #fff;
+                opacity: 0.7;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover{
+                    opacity: 1;
+                }
+
+                a{
+                    font-size: 15px;
+                    line-height: 45px;
+                    color: #fff;
+
+                    i{
+                        display: inline-block;
+                        font-size: 27px;
+                        line-height: 52px;
+                    }
+                }
+
+                .uil-search,
+                .uil-shopping-bag{
+                    font-size: 24px; 
+                    line-height: 52px;
+                }
+
+                &.nav_basket.hide{
+                    position: relative; z-index: -1; 
+                    opacity: 0;
+                }
+
+                &.nav_hamburger{
+                    display: none;
+                }
+
+            }
+        }
+
+        /*검색 버튼 눌렀을 때 나오는 css*/
+        .search_input{
+            display: none;
+
+            &.on{
+                display: block;
+                position: absolute; z-index: 5;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0%;
+                height: 100%;
+                padding: 0 10px;
+                background: #222;
+                box-sizing: border-box;
+                animation: search_input .5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+            @keyframes search_input{
+                0%{width: 0%; display: block; opacity: 0;}
+                100%{width: 100%; display: block; opacity: 1;}
+            }
+
+            span{
+                &:first-child{
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    transform: translateY(-55%);
+                }
+                &:last-child{
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-55%);
+                }
+                &.search_close{
+                    cursor: pointer;
+                }
+                i{
+                    font-size: 24px;
+                    color: #eee;
+                    line-height: 20px;
+                }
+            }
+
+            input{
+                &#input{
+                    position: absolute;
+                    top: 50%;
+                    left: 40px;
+                    transform: translateY(-50%);
+                    width: 92%;
+                    height: 60%;
+                    padding-left: 13px;
+                    font-size: 17px;
+                    background: #222;
+                    color: #eee;
+                    outline: none;
+                    border: none;
+                    box-sizing: border-box;
+                }
+                &::placeholder{
+                    color: #eee;
+                }
+            }
+        }
+
+        .fast_link{
+            display: none;
+
+            position: relative;
+            width: 100%;
+            height: 260px;
+            background: #eee;
+            color: #444;
+            border-radius: 0 0 10px 10px;
+
+            &.on{
+                display: block;
+            }
+
+            & > ul{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                padding: 25px 50px 0 50px;
+                color: #636363;
+                box-sizing: border-box;
+
+                & > li{
+                    font-size: 13px; 
+                    font-weight: bold;
+                    animation: fast_link_li .5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+
+                    & > ul{
+                        padding: 20px 0 0 0; 
+                        font-weight: normal;
+
+                        & > li{
+                            padding: 5px 0 5px 20px;
+                            margin-bottom: 10px;
+                            font-size: 15px;
+                            cursor: pointer;
+                            transition: .3s;
+                            opacity: 0;
+                            animation: fast_link_li .5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+
+                            &:hover{
+                                background: #e0e0e0;
+                                color: #30b364;
+                                border-radius: 4px;
+                                text-shadow: 0 0 1px;
+                            }
+
+                            &:nth-of-type(1){animation-delay: .15s;}
+                            &:nth-of-type(2){animation-delay: .3s;}
+                            &:nth-of-type(3){animation-delay: .45s;}
+                            &:nth-of-type(4){animation-delay: .6s;}
+                            &:nth-of-type(5){animation-delay: .75s;}
+                        }
+                    }
+                }
+            }
+
+            @keyframes fast_link_li{
+                0%{transform: translateX(300px); opacity: 0;}
+                100%{transform: translateX(0px); opacity: 1;}
+            }
+        }
+
+        /*장바구니 click시 나오는 css*/ /*장바구니 click시 나오는 css*/
+        .shopping_basket{
+            position: absolute;
+            right: 0;
+            width: 270px;
+            height: 280px;
+            margin-top: 4px;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 7px;
+            background: #eee;
+            box-sizing: border-box;
+        
+            display: none;
+        }
+    }
+
+    .mobile_nav{display: none;}
+}
+
+/*장바구니 click시 나오는 css*/ /*장바구니 click시 나오는 css*/
+.shopping_basket{
+	position: absolute;
+    right: 0;
+    width: 270px;
+    height: 280px;
+    margin-top: 4px;
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    background: #eee;
+    box-sizing: border-box;
+
+    display: none;
+
+    &::before{
+        content: "";
+        position: absolute; z-index: 2;
+        display: block;
+        top: -6px;
+        right: 15px;
+        width: 10px;
+        height: 10px;
+        background: #eee;
+        transform: rotate(45deg);
+        border-left: 1px solid #aaa;
+        border-top: 1px solid #aaa;
+    }
+
+    p{
+        padding: 10px 0 25px 0;
+        font-size: 13px;
+        border-bottom: 1px solid #cdcdcd;
+        text-align: center;
+    }
+
+    ul{
+        margin-top: 10px;
+        color: #32b366;
+
+        li{
+            font-size: 13px;
+            margin: 14px 0;
+            cursor: pointer;
+
+            span{
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+            i{
+                padding-right: 8px;
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+/*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(24,1fr);
+    grid-template-rows: repeat(16,1fr);
+    grid-gap: 10px;
+    background-color: #eee;
+    box-sizing: border-box;
+
+    article{
+        position: relative; 
+        overflow: hidden; 
+        background-color: #fff;
+        border-radius: 15px;
+        word-break: keep-all;
+        color: #fff;
+
+        &.airpobs_max{
+            grid-column: 1/17;
+            grid-row: 1/10;
+            background: #eee;
+
+            ul{
+                position: absolute; z-index: 2;
+                top: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+                height: 85%;
+
+                li{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+
+                    &:nth-of-type(1){
+                        display: block;
+
+                        background: url(../images/airpobs_max_white.png) no-repeat center;
+                        background-size: contain;
+                    }
+                    &:nth-of-type(2){
+                        background: url(../images/airpobs_max_blue.png) no-repeat center;
+                        background-size: contain;
+                    }
+                    &:nth-of-type(3){
+                        background: url(../images/airpobs_max_mint.png) no-repeat center;
+                        background-size: contain;
+                    }
+                    &:nth-of-type(4){
+                        background: url(../images/airpobs_max_pink.png) no-repeat center;
+                        background-size: contain;
+                    }
+                    &:nth-of-type(5){
+                        background: url(../images/airpobs_max_black.png) no-repeat center;
+                        background-size: contain;
+                    }
+                }
+            }
+
+            h3{
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+                font-size: 8.5vw;
+                color: #8c8c8c;
+                font-family: 'unicons-line';
+                text-shadow: 0 0 12px;
+                text-align: center;
+            }
+
+            p{
+                position: absolute;
+                bottom: 3%;
+                left: 50%;
+                transform: translateX(-50%);
+                
+                span{
+                    &:first-child{
+                        margin-right: 20px;
+                        padding: 4px 8px;
+                        background: #3e90e4;
+                        color: #fff;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        transition: .3s;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }            
+                    }
+                    &:last-child{
+                        color: #2487ec;
+                        cursor: pointer;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+        &.airpobs_pro{
+            grid-column: 17/21;
+            grid-row: 1/10;
+            background: #000;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 55%;
+                    background: url(../images/music_airpods_pro.jpg) no-repeat center;
+                    background-size: 80% 100%;
+                }
+
+                &:nth-of-type(2){
+                    position: absolute;
+                    top: 20%;
+                    left: 50%;
+                    width: 100%;
+                    transform: translate(-50%,-50%);
+                    text-align: center;
+                }
+            }
+        }
+        &.airpobs{
+            grid-column: 21/25;
+            grid-row: 1/10;
+            background: #fafafa;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 55%;
+                    background: url(../images/music_airpods.jpg) no-repeat center;
+                    background-size: 80% 100%;
+                }
+                &:nth-of-type(2){
+                    position: absolute;
+                    top: 20%;
+                    left: 50%;
+                    width: 100%;
+                    transform: translate(-50%,-50%);
+                    text-align: center;
+                    color: #000;
+                }
+            }
+        }
+        &.ipod_touch{
+            grid-column: 17/21;
+            grid-row: 10/17;
+            background: #fafafa;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 56%;
+                    background: url(../images/ipod_touch.jpg) no-repeat center;
+                    background-size: contain;
+                }
+                &:nth-of-type(2){
+                    position: absolute;
+                    top: 5%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100%;
+                    text-align: center;
+                    color: #000;
+                }
+            }
+        }
+        &.music_as{
+            grid-column: 21/25;
+            grid-row: 10/17;
+            background: #fafafa;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 56%;
+                    background: url(../images/music_as.jpg) no-repeat center;
+                    background-size: contain;
+                }
+                &:nth-of-type(2){
+                    position: absolute;
+                    top: 5%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100%;
+                    text-align: center;
+                    color: #000;
+
+                    p{
+                        display: inline-block;
+                        font-size: 0.8vw;
+                        color: #2487ec;
+                        cursor: pointer;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        &.apple_music_app{
+            grid-column: 1/12;
+            grid-row: 10/17;
+            background: #1c1c1c;
+
+            div{
+                position: absolute;
+                top: 17%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 52%;
+                background: url(../images/apple_music_app.jpg) no-repeat center;
+                background-size: cover;
+            }
+
+            h3{
+                position: absolute;
+                top: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1.3vw; 
+            }
+
+            ul{
+                position: absolute;
+                bottom: 5%;
+                width: 100%;
+                height: 28%;
+                display: flex;
+                justify-content: space-evenly;
+
+                li{
+                    position: relative;
+                    text-align: center;
+
+                    p{
+                        &:nth-of-type(1){
+                            img{
+                                width: 50%;
+                            }
+                        }
+                        &:nth-of-type(2){
+                            margin: 3% 0 5% 0;
+                            font-size: .8vw;
+                            font-weight: bold;
+                        }
+                        &:nth-of-type(3){
+                            font-size: 0.8vw;
+                            color: #2487ec;
+                            cursor: pointer;
+    
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }     
+                }
+            }
+        }
+        &.apple_music{
+            grid-column: 12/17;
+            grid-row: 10/17;
+
+            p{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+
+                video{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 120%;
+                    height: 100%;
+                    object-fit: fill; 
+                }
+            }
+        }
+
+        // aritcle 안에 공통 css
+        .article_h3{
+            margin-bottom: 10px;
+            font-size: 1vw;
+        }
+        .article_strong{
+            display: block;
+            margin-bottom: 8%;
+            font-size: 1.3vw;
+        }
+        .article_p{
+            font-size: 0.8vw;
+
+            span{
+                &.p_span1{
+                    margin-right: 20px;
+                    padding: 3px 7px;
+                    background: #3e90e4;
+                    color: #fff;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    transition: .3s;
+    
+                    &:hover{
+                        background: #267ed8;
+                    }
+                }
+                
+                &.p_span2{
+                    color: #2487ec;
+                    cursor: pointer;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*footer*/ /*footer*/ /*footer*/
+footer{display: none;}
+
+
+
+/*미디어 쿼리 모바일 버전*/ /*미디어 쿼리 모바일 버전*/ /*미디어 쿼리 모바일 버전*/
+@media (max-width: 769px) {
+
+#wrap{height: auto;}
+
+/*네비게이션*/ /*네비게이션*/ /*네비게이션*/
+nav > ul > li{display: none;}
+.nav_icon{display: block;}/*모바일: 햄버거 버튼, 애플 로고, 장바구니(BLOCK)*/
+.nav_hamburger{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 10px;
+    transition: all .5s;
+}
+.nav_hamburger > span{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: all 0.5s;
+}
+.nav_hamburger > span:last-child{
+    bottom: 0;
+}
+
+.nav_hamburger.on > span{top: 50%; transform: translateY(-50%);}
+.nav_hamburger.on > span:first-child{
+    transform: rotate(45deg);
+}
+.nav_hamburger.on > span:last-child{
+    transform: rotate(-45deg);
+}
+.mobile_nav{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #222;
+    padding-top: 50px;
+    /* padding: 50px 10px 0 10px; */
+    box-sizing: border-box;
+}
+.mobile_nav > p{
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #454545;
+}
+.mobile_nav > p > i{
+    position: absolute; z-index: 3;
+    top: 3px;
+    left: 2.5%;
+    line-height: 32px;
+    font-size: 20px;
+    color: #868686;
+}
+.mobile_nav > p > input{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96%;
+    height: 35px;
+    padding-left: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #eee;
+    background: #4a4a4a;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+.mobile_nav > ul{
+    position: relative;
+    width: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+.mobile_nav > ul > li > a{
+    display: block;
+    padding: 10px 0;
+    font-size: 17px;
+    border-bottom: 1px solid #454545;
+    color: #ccc;
+    transition: .3s;
+}
+.mobile_nav > ul > li > a:hover{color: #fff;}
+.mobile_nav > ul > li:last-child > a{border-bottom: none;}
+
+
+
+.search_input,
+.fast_link{display: none;}
+
+/*모바일 장바구니*/ /*모바일 장바구니*/ 
+.shopping_basket{
+    width: 100%;
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/
+section{
+    height: auto;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: 300px repeat(5,500px) 1150px;
+
+    article{
+        border-radius: 0;
+
+        &.airpobs_max{
+            grid-column: 1/2;
+            grid-row: 2/3;
+            background: #fff;
+
+            h3{
+                top: 8%;
+                font-size: 40px;
+            }
+
+            p{
+                bottom: unset;
+                top: 18%;
+                width: 100%;
+                text-align: center;
+            }
+
+            ul{
+                top: 20%;
+                width: 65%;
+            }
+        }
+        &.airpobs_pro{
+            grid-column: 1/2;
+            grid-row: 3/4;
+
+            div{
+                &:nth-of-type(1){
+                    background-size: 55% 100%;
+                }
+                &:nth-of-type(2){
+                    top: 20%;
+                }
+            }
+        }
+        &.airpobs{
+            grid-column: 1/2;
+            grid-row: 4/5;
+
+            div{
+                &:nth-of-type(2){
+                    p{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        &.ipod_touch{
+            grid-column: 1/2;
+            grid-row: 5/6;
+        }
+        &.music_as{
+            grid-column: 1/2;
+            grid-row: 6/7;
+
+            div{
+                &:nth-of-type(2){
+                    p{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        &.apple_music_app{
+            grid-column: 1/2;
+            grid-row: 7/8;
+
+            h3{
+                width: 100%;
+                font-size: 25px;
+                text-align: center;
+            }
+
+            div{
+                height: 21%;
+            }
+
+            ul{
+                height: 55%;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                gap: 5%;
+
+                li{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10%;
+
+                    p{
+                        &:nth-of-type(1){
+                            img{
+                                width: 13%;
+                            }
+                        }
+                        &:nth-of-type(2){
+                            margin: 0;
+                            font-size: 20px;
+                        }
+                        &:nth-of-type(3){
+                            display: inline-block;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        &.apple_music{
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        .article_h3{
+            font-size: 20px;
+        }
+        .article_strong{
+            font-size: 28px;
+        }
+        .article_p{
+            font-size: 16px;
+        }
+    }
+}
+
+/*푸터*/ /*푸터*/ /*푸터*/
+footer{
+	display: block;
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    padding: 0 15px;
+    color: #666;
+    background: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    box-sizing: border-box;
+
+    p{
+        &:first-child{
+            margin-bottom: 20px;
+            padding-top: 15px;
+            font-size: 12px;
+            line-height: 1.5em;
+        }
+    }
+
+    .footer_nav{
+        margin-bottom: 15px;
+        padding-top: 25px;
+        border-top: 1px solid #ccc;
+
+        & > ul{
+            position: relative;
+            width: 100%;
+
+            & > li{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                padding: 10px 0;
+                font-size: 12px;
+                cursor: pointer;
+                border-bottom: 1px solid #ddd;
+
+                span{
+                    position: absolute;
+                    right: 5px;
+                    width: 16px;
+                    height: 16px;
+                    background: url(../images/bottom_arrow.png) no-repeat center;
+                    background-size: cover;
+                    transform: rotate(0deg);
+                }
+
+                ul{
+                    display: none;
+                    padding-top: 10px;
+
+                    li{
+                        padding: 6px 15px;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
+
+    .site_number{
+        margin-bottom: 15px;
+        font-size: 11px;
+
+        span{
+            color: #30b364;
+            cursor: pointer;
+        }
+    }
+
+    .copyright{margin-bottom: 15px;}
+
+    .law{
+        position: relative;
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+
+        span{
+            cursor: pointer;
+        }
+    }
+
+    .address{padding-bottom: 15px;}
+
+    /*footer 공통*/
+    .footer_nav > ul > li > ul > li:hover,
+    footer > .site_number > span:hover,
+    footer > .law > span:hover{text-decoration: underline;}
+}
+}

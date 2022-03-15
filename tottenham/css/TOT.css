@@ -1,0 +1,267 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+*{margin: 0; padding: 0;}
+ol,ul{list-style: none;}
+a{outline: 0; text-decoration: none; color: #1d3030;}
+img{border: 0; width: 100%; height: 100%;}
+.hide{display: none;}
+body{
+	/*position: fixed;*/ 
+	width: 100%; 
+	min-width: 1400px; 
+	height: 4000px;
+	background: #eee;
+	overflow-x: hidden;
+}
+
+/*로고*/
+h1{
+	position: fixed; 
+	top: 2%;
+	right: 1.5%;
+   width: 5vw; 
+   height: 10vh;
+}
+
+
+/*sns*/
+#sns{
+	position: fixed; 
+	top: 2%;
+	left: 1.5%;
+	width: 8.5vw;
+
+	display: flex;
+	justify-content: space-between;
+
+	transition: all 0.5s;
+}
+
+#sns li{
+}
+		 
+#sns li a{
+	display: inline-block; 
+  	font-size: 1.1vw;
+  	color: #132257; 
+  	opacity: 0.5;
+  	transition: all 0.5s; 
+}
+
+#sns li:hover a{
+	transform: scale(1.2); 
+	opacity: 1; 
+	color: #132257;
+}
+
+
+/*nav*/
+#nevi{
+	position: fixed; 
+	top: 23%;
+	left: 1.5%;
+	width: 36vw;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+#nevi li{
+}
+
+#nevi li:hover{color: #444;}
+
+#nevi li a{
+	font-size: .9vw;
+	font-weight: bold;
+	color: #132257; 
+}
+
+
+/*COPY RIGHT*/
+.copyright{
+	position: fixed; 
+	bottom: 2%;
+	right: 1.5%;
+	font-size: .7vw; 
+	color: #132257;
+}
+
+/* Section */
+section{
+	position: fixed; 
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 4610px; 
+	height: 37vh;
+}/*3960px*/
+
+article{
+	float: left;
+	position: relative;
+	width: 11vw;
+	height: 100%;
+	margin-right: 15px;
+	background: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px #aaa;
+    transition: all 0.3s;
+	opacity: 0.6;
+}
+
+article:hover{
+	opacity: 1;
+}		
+
+article h2{ 
+	position: absolute; z-index: 4;
+	bottom: 10%;
+   width: 100%;
+   padding: 1% 0 2% 0;
+   font-size: .85vw;
+	text-align: center;
+	box-sizing: border-box;
+	background: #444;
+}
+
+article strong{
+	position: absolute; 
+	top:0;
+	width: 100%;
+	height: 88%;
+}			
+
+article h2 a{color: #fff;}
+
+article em{opacity: 0;}
+article span{opacity: 0;}
+
+/*포폴 이미지*/
+/*article p{position: absolute; top: -60px; right: -640px;
+		  z-index: 3;
+		  width: 640px; height: 420px;
+		  overflow: hidden;
+		  background-color: #fff;
+		  }*/
+
+article p{
+	position: absolute; z-index: 3;
+	top: 50%; /*right: 0;*/
+	width: 640px; 
+	height: 0;
+	margin-top: 0;
+	overflow: hidden;
+	/*background: #fff;*/
+}
+
+article img{
+	width: 100%; 
+	height: 100%;
+	filter: grayscale(.6);
+}
+
+article.on img{
+	width: auto; 
+	height: 100%;
+	filter: unset;
+}
+
+article.on{
+	width: 38vw;
+	height: 37vh;
+	margin-top: -20px;
+	margin-left: 10px;
+}	/*width:732,height:380px;*/
+
+article.on h2{
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	height: 65px;
+	padding: 0 0 0 2%;
+	line-height: 65px;
+	background: #111;
+	text-align: left;
+	opacity: 0.3;
+}
+
+article.on h2 a{
+	font-size: 2vw; 
+	color: #fff;
+}
+
+article.on strong{opacity: 0;}
+
+article.on p{
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+}
+
+article.on p img{
+	margin-left: 26%;
+}			 
+
+article.on em{
+	position: absolute;
+	bottom: 2%;
+	right: 1.5%;
+	padding: 1%;
+	font-size: 1vw;
+	font-style: normal;
+	font-weight: bold;
+	color: #132257;
+	/*background: #aaa;*/
+	opacity: 1;
+}	
+
+article.on span{
+	position: absolute; z-index: 5;
+	top: 2%;
+	right: 2%;
+	font-size: .85vw;
+	font-weight: bold;
+	color: #132257;
+	opacity: 1;
+	cursor: pointer;
+}	  		  
+
+/* 슬로건 */
+.txt{
+	position: fixed; 
+	top: 50%;
+	right: 1.5%;
+	transform: translateY(-50%);
+
+	font-size: 4vw;
+	color: #132257;
+	text-shadow: 1px 1px 5px;
+}
+
+.txt span{color: #fff;}	 
+
+.txt em{
+	position: absolute; 
+	right: 1.5%;
+	margin-top: 2%;
+
+	font-size: 1.5vw; 
+	font-style: normal;
+	text-shadow: 1px 1px 2px;
+}	 	
+
+
+					
+
+
+
+
+
+
+
+

@@ -1,0 +1,1076 @@
+@charset "utf-8";
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+/*common*/
+*{margin:0; padding: 0;}
+ol,ul{list-style: none;}
+a{outline: 0; text-decoration:none; color: #000;}
+img{border: 0;}
+.hide{display: none;}
+
+html,body{width: 100%; height: 100%; font-family: 'NanumSquare', sans-serif;}
+
+#wrap{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+/*헤더*/ /*헤더*/ /*헤더*/ /*헤더*/
+header{
+    position: fixed; z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #222;
+
+    nav{
+        position: relative; z-index: 3;
+        max-width: 1020px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+        background: #222;
+        box-sizing: border-box;
+
+        & > ul{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            line-height: 50px;
+
+            & > li{
+                color: #fff;
+                opacity: 0.7;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover{
+                    opacity: 1;
+                }
+
+                a{
+                    font-size: 15px;
+                    line-height: 45px;
+                    color: #fff;
+
+                    i{
+                        display: inline-block;
+                        font-size: 27px;
+                        line-height: 52px;
+                    }
+                }
+
+                .uil-search,
+                .uil-shopping-bag{
+                    font-size: 24px; 
+                    line-height: 52px;
+                }
+
+                &.nav_basket.hide{
+                    position: relative; z-index: -1; 
+                    opacity: 0;
+                }
+
+                &.nav_hamburger{
+                    display: none;
+                }
+
+            }
+        }
+
+        /*검색 버튼 눌렀을 때 나오는 css*/
+        .search_input{
+            display: none;
+
+            &.on{
+                display: block;
+                position: absolute; z-index: 5;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0%;
+                height: 100%;
+                padding: 0 10px;
+                background: #222;
+                box-sizing: border-box;
+                animation: search_input .5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+            @keyframes search_input{
+                0%{width: 0%; display: block; opacity: 0;}
+                100%{width: 100%; display: block; opacity: 1;}
+            }
+
+            span{
+                &:first-child{
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    transform: translateY(-55%);
+                }
+                &:last-child{
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-55%);
+                }
+                &.search_close{
+                    cursor: pointer;
+                }
+                i{
+                    font-size: 24px;
+                    color: #eee;
+                    line-height: 20px;
+                }
+            }
+
+            input{
+                &#input{
+                    position: absolute;
+                    top: 50%;
+                    left: 40px;
+                    transform: translateY(-50%);
+                    width: 92%;
+                    height: 60%;
+                    padding-left: 13px;
+                    font-size: 17px;
+                    background: #222;
+                    color: #eee;
+                    outline: none;
+                    border: none;
+                    box-sizing: border-box;
+                }
+                &::placeholder{
+                    color: #eee;
+                }
+            }
+        }
+
+        .fast_link{
+            display: none;
+
+            position: relative;
+            width: 100%;
+            height: 260px;
+            background: #eee;
+            color: #444;
+            border-radius: 0 0 10px 10px;
+
+            &.on{
+                display: block;
+            }
+
+            & > ul{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                padding: 25px 50px 0 50px;
+                color: #636363;
+                box-sizing: border-box;
+
+                & > li{
+                    font-size: 13px; 
+                    font-weight: bold;
+                    animation: fast_link_li .5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+
+                    & > ul{
+                        padding: 20px 0 0 0; 
+                        font-weight: normal;
+
+                        & > li{
+                            padding: 5px 0 5px 20px;
+                            margin-bottom: 10px;
+                            font-size: 15px;
+                            cursor: pointer;
+                            transition: .3s;
+                            opacity: 0;
+                            animation: fast_link_li .5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+
+                            &:hover{
+                                background: #e0e0e0;
+                                color: #30b364;
+                                border-radius: 4px;
+                                text-shadow: 0 0 1px;
+                            }
+
+                            &:nth-of-type(1){animation-delay: .15s;}
+                            &:nth-of-type(2){animation-delay: .3s;}
+                            &:nth-of-type(3){animation-delay: .45s;}
+                            &:nth-of-type(4){animation-delay: .6s;}
+                            &:nth-of-type(5){animation-delay: .75s;}
+                        }
+                    }
+                }
+            }
+
+            @keyframes fast_link_li{
+                0%{transform: translateX(300px); opacity: 0;}
+                100%{transform: translateX(0px); opacity: 1;}
+            }
+        }
+
+        /*장바구니 click시 나오는 css*/ /*장바구니 click시 나오는 css*/
+        .shopping_basket{
+            position: absolute;
+            right: 0;
+            width: 270px;
+            height: 280px;
+            margin-top: 4px;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 7px;
+            background: #eee;
+            box-sizing: border-box;
+        
+            display: none;
+        }
+    }
+
+    .mobile_nav{display: none;}
+}
+
+/*장바구니 click시 나오는 css*/ /*장바구니 click시 나오는 css*/
+.shopping_basket{
+	position: absolute;
+    right: 0;
+    width: 270px;
+    height: 280px;
+    margin-top: 4px;
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    background: #eee;
+    box-sizing: border-box;
+
+    display: none;
+
+    &::before{
+        content: "";
+        position: absolute; z-index: 2;
+        display: block;
+        top: -6px;
+        right: 15px;
+        width: 10px;
+        height: 10px;
+        background: #eee;
+        transform: rotate(45deg);
+        border-left: 1px solid #aaa;
+        border-top: 1px solid #aaa;
+    }
+
+    p{
+        padding: 10px 0 25px 0;
+        font-size: 13px;
+        border-bottom: 1px solid #cdcdcd;
+        text-align: center;
+    }
+
+    ul{
+        margin-top: 10px;
+        color: #32b366;
+
+        li{
+            font-size: 13px;
+            margin: 14px 0;
+            cursor: pointer;
+
+            span{
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+            i{
+                padding-right: 8px;
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+/*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(24,1fr);
+    grid-template-rows: repeat(16,1fr);
+    grid-gap: 10px;
+    background-color: #eee;
+    box-sizing: border-box;
+
+    article{
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        word-break: break-all;
+        background: #fff;
+
+        &.support{
+            grid-column: 6/20;
+            grid-row: 5/13;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: url(../images/support.jpg) no-repeat center;
+                    background-size: cover;
+                }
+
+                &:nth-of-type(2){
+                    position: absolute;
+                    top: 15%;
+                    left: 50%;
+                    width: 60%;
+                    transform: translateX(-50%);
+
+                    h3{
+                        margin-bottom: 15px;
+                        font-size: 1.5vw;
+                        font-weight: 900;
+                        text-align: center;
+                    }
+                    div{
+                        position: unset;
+                        p{
+                            position: relative; z-index: 2;
+                            width: 100%;
+                            height: 40px;
+                            background: #fff;
+                            border: 1px solid #aaa;
+                            border-radius: 5px;
+                            box-sizing: border-box;
+
+                            span{
+                                position: absolute;
+                                left: 1%;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                width: 5%;
+                                font-size: 22px;
+                                color: #757575;
+                            }
+
+                            input{
+                                position: absolute;
+                                left: 7%;
+                                width: 92%;
+                                height: 99%;
+                                color: #000;
+                                border: none;
+                                outline: none;
+
+                                &[name="text"]{
+                                    font-size: .8vw;
+                                    font-weight: bold;
+                                    font-family: fangsong;
+                                    color: #000;
+                                }
+                            }
+                        }
+
+                        & > ul{
+                            display: none;
+                            position: relative;
+                            top: -3px;
+                            width: 100%;
+                            height: 100%;
+                            padding: 3%;
+                            background: #fff;
+                            box-sizing: border-box;
+                            border-radius: 0 0 5px 5px;
+                            border-left: 1px solid #aaa;
+                            border-right: 1px solid #aaa;
+                            border-bottom: 1px solid #aaa;
+
+                            &.on{
+                                display: block;
+                            }
+                            & > li{
+                                font-size: .7vw;
+                                font-weight: bold;
+
+                                & > ul{
+                                    position: relative;
+                                    width: 100%;
+                                    height: 100%;
+                                    margin-top: 2%;
+
+                                    & > li{
+                                        padding: 10px 13px;
+                                        font-size: .8vw;
+                                        font-weight: normal;
+                                        cursor: pointer;
+                                        transition: .3s;
+
+                                        &:hover{
+                                            color: #30b364;
+                                            background: #eee;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.devices{
+            grid-column: 6/20;
+            grid-row: 1/5;
+            background: #eee;
+
+            ul{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+
+                li{
+                    text-align: center;
+                    cursor: pointer;
+
+                    &:hover{
+                        i{
+                            transform: translateY(-10px);
+                        }
+                        span{
+                            text-decoration: underline;
+                        }
+                    }
+
+                    i{
+                        display: block;
+                        margin-bottom: 9px;
+                        font-size: 2vw;
+                        transition: .3s;
+                    }
+
+                    span{
+                        font-size: 1vw;
+                    }
+                }
+            }
+        }
+        &.apple_help{
+            grid-column: 6/20;
+            grid-row: 13/17;
+
+            ul{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                text-align: center;
+
+                li{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    cursor: pointer;
+
+                    &:hover{
+                        span{
+                            &:nth-of-type(2){color: #30b364;}
+                        }
+                    }
+
+                    span{
+                        &:nth-of-type(1){
+                            transition: .3s;
+                        }
+                        &:nth-of-type(2){
+                            font-size: .8vw;
+                            transition: .3s;
+                        }       
+                    }
+                }
+            }
+        }
+        &.get_support{
+            grid-column: 1/6;
+            grid-row: 1/9;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 60%;
+                    background: url(../images/get_support.jpg) no-repeat center;
+                    background-size: cover;
+                }
+            }
+        }
+        &.apple_care{
+            grid-column: 1/6;
+            grid-row: 9/17;
+
+            div{
+                &:nth-of-type(1){
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 60%;
+                    background: url(../images/apple_care.png) no-repeat center;
+                    background-size: cover;
+                }
+            }
+        }
+        &.get_support,
+        &.apple_care{
+            div{
+                &:nth-of-type(2){
+                    position: absolute;
+                    bottom: 2.5%;
+                    width: 100%;
+                    padding: 0px 3%;
+                    box-sizing: border-box;
+                    word-break: keep-all;
+                }
+
+                h3{
+                    margin-bottom: 15px;
+                    font-size: 1vw;
+                    font-weight: 900;
+                }
+                
+                p{
+                    &:nth-of-type(1){
+                        margin-bottom: 20px;
+                        font-size: .9vw;
+                    }
+                    &:nth-of-type(2){
+                        display: inline-block;
+                        font-size: .85vw;
+                        color: #30b364;
+                        cursor: pointer;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }       
+        }
+
+        &.imitation{
+            grid-column: 20/25;
+            grid-row: 1/9;
+
+            div{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+                height: 100%;
+                padding: 5% 2%;
+                box-sizing: border-box;
+                text-align: center;
+                word-break: keep-all;
+
+                h3{
+                    margin-bottom: 2%;
+                    font-size: 1.3vw;
+                    font-weight: 900;
+                }
+
+                p{
+                    font-size: .9vw;
+                    line-height: 1.6em;
+
+                    span{
+                        color: #30b364;
+                        font-weight: bold;
+                        cursor: pointer;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+            }
+        }
+        &.apple_service_program{
+            grid-column: 20/25;
+            grid-row: 9/17;
+
+            div{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+                padding: 0 3%;
+                box-sizing: border-box;
+                word-break: keep-all;
+
+                h3{
+                    margin-bottom: 15px;
+                    font-size: 1.3vw;
+                    font-weight: 900;
+                }
+
+                ul{
+                    li{
+                        display: inline-block;
+                        padding: 3% 0;
+                        font-size: .85vw;
+                        font-weight: bold;
+                        color: #30b364;
+                        cursor: pointer;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//푸터//푸터//푸터//푸터
+footer{display: none;}
+
+/*미디어 쿼리 모바일 버전*/ /*미디어 쿼리 모바일 버전*/ /*미디어 쿼리 모바일 버전*/
+@media (max-width: 769px) {
+
+#wrap{height: auto;}
+/*네비게이션*/ /*네비게이션*/ /*네비게이션*/
+header .nav_hamburger{display: block;}
+nav > ul > li{display: none;}
+.nav_icon{display: block;}/*모바일: 햄버거 버튼, 애플 로고, 장바구니(BLOCK)*/
+
+.nav_hamburger{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 10px;
+    transition: all .5s;
+
+    span{
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        transition: all 0.5s;
+
+        &:last-child{
+            bottom: 0;
+        }
+    }
+
+    &.on{
+        span{
+            top: 50%; 
+            transform: translateY(-50%);
+
+            &:first-child{
+                transform: rotate(45deg);
+            }
+            &:last-child{
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.mobile_nav{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    background: #222;
+    box-sizing: border-box;
+
+    p{
+        position: relative;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #454545;
+
+        i{
+            position: absolute; z-index: 3;
+            top: 3px;
+            left: 2.5%;
+            line-height: 32px;
+            font-size: 20px;
+            color: #868686;
+        }
+
+        input{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 96%;
+            height: 35px;
+            padding-left: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #eee;
+            background: #4a4a4a;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+    }
+
+    ul{
+        position: relative;
+        width: 88%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 10px;
+
+        li{
+            a{
+                display: block;
+                padding: 10px 0;
+                font-size: 17px;
+                border-bottom: 1px solid #454545;
+                color: #ccc;
+                transition: .3s;
+
+                &:hover{
+                    color: #fff;
+                }
+            }
+
+            &:last-child{
+                a{
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+.search_input,
+.fast_link{display: none;}
+
+/*모바일 장바구니*/ /*모바일 장바구니*/ 
+.shopping_basket{
+    width: 100%;
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/
+section{
+    height: auto;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: 600px 370px 600px 400px repeat(2,500px) 400px;
+
+    article{
+        border-radius: 0;
+
+        &.support{
+            grid-column: 1/2;
+            grid-row: 1/2;
+            
+            div{
+                &:nth-of-type(1){
+                    height: 35%;
+                }
+                &:nth-of-type(2){
+                    top: 40%;
+                    width: 100%;
+
+                    h3{
+                        font-size: 23px;
+                    }
+
+                    div{
+                        position: unset;
+                        width: unset;
+                        height: unset;
+                        background: unset;
+                        p{
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 90%;
+
+                            input{
+                                left: 9%;
+                                width: 85%;
+
+                                &[name="text"]{
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+
+                        
+                        ul{
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 90%;
+
+                        li{
+                            font-size: 12px;
+
+                            ul{
+                                li{
+                                    padding: 8px 6px;
+                                    font-size: 12px;
+                                    overflow: hidden;
+                                    display: block; 
+                                    text-overflow: ellipsis; 
+                                    white-space: nowrap;
+                                }
+                            }
+                        }
+                    }
+                        
+                    }
+                }
+            }
+        }
+        &.devices{
+            grid-column: 1/2;   
+            grid-row: 2/3;
+
+            & > ul{
+                display: unset;
+                justify-content: unset;
+
+                & > li{
+                    float: left;
+                    width: 50%;
+                    margin-bottom: 40px;
+
+                    &:nth-of-type(3){
+                        width: 100%;
+                    }
+                    &:nth-of-type(4),
+                    &:nth-of-type(5){
+                        margin-bottom: 0;
+                    }
+                    
+                    i{
+                        font-size: 50px;
+                    }
+                    
+                    span{
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        &.apple_help{
+            grid-column: 1/2;
+            grid-row: 3/4;
+
+            & > ul{
+                display: unset;
+                justify-content: unset;
+
+                & > li{
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 90%;
+                    padding: 25px 0;
+                    border-bottom: 1px solid #bcbcbc;
+
+                    &:last-child{
+                        border-bottom: none;
+                    }
+
+                    span{
+                        &:nth-of-type(1){
+                            img{
+                                width: 50px;
+                                height: 50px;
+                            }
+                        }
+                        &:nth-of-type(2){
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+        &.get_support{
+            grid-column: 1/2;
+            grid-row: 4/5;
+        }
+        &.apple_care{
+            grid-column: 1/2;
+            grid-row: 5/6;
+        }
+        /*지원 받기 article*/ /*and*/ /*애플 케어 서비스 article*/
+        &.get_support,
+        &.apple_care{
+            div{
+                &:nth-of-type(2){
+                    top: 66%;
+
+                    h3{
+                        margin-bottom: 25px;
+                        font-size: 23px;
+                    }
+
+                    p{
+                        &:nth-of-type(1){
+                            margin-bottom: 20px;
+                            font-size: 16px;
+                        }
+                        &:nth-of-type(2){
+                            font-size: 15px
+                        }
+                    }
+                }
+            }
+        }
+        &.imitation {
+            grid-column: 1/2;
+            grid-row: 6/7;
+
+            div{
+                h3{
+                    margin-bottom: 20px;
+                    font-size: 21px;
+                }
+
+                p{
+                    font-size: 17px;
+                    line-height: 30px;
+                }
+            }
+        }
+        &.apple_service_program{
+            grid-column: 1/2;
+            grid-row: 7/8;
+            div{
+                h3{
+                    margin-bottom: 20px;
+                    font-size: 21px;
+                }
+
+                ul{
+                    li{
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*푸터*/ /*푸터*/ /*푸터*/
+footer{
+	display: block;
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    padding: 0 15px;
+    color: #666;
+    background: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    box-sizing: border-box;
+
+    p{
+        &:first-child{
+            margin-bottom: 20px;
+            padding-top: 15px;
+            font-size: 12px;
+            line-height: 1.5em;
+        }
+    }
+
+    .footer_nav{
+        margin-bottom: 15px;
+        padding-top: 25px;
+        border-top: 1px solid #ccc;
+
+        & > ul{
+            position: relative;
+            width: 100%;
+
+            & > li{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                padding: 10px 0;
+                font-size: 12px;
+                cursor: pointer;
+                border-bottom: 1px solid #ddd;
+
+                span{
+                    position: absolute;
+                    right: 5px;
+                    width: 16px;
+                    height: 16px;
+                    background: url(../images/bottom_arrow.png) no-repeat center;
+                    background-size: cover;
+                    transform: rotate(0deg);
+                }
+
+                ul{
+                    display: none;
+                    padding-top: 10px;
+
+                    li{
+                        padding: 6px 15px;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
+
+    .site_number{
+        margin-bottom: 15px;
+        font-size: 11px;
+
+        span{
+            color: #30b364;
+            cursor: pointer;
+        }
+    }
+
+    .copyright{margin-bottom: 15px;}
+
+    .law{
+        position: relative;
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+
+        span{
+            cursor: pointer;
+        }
+    }
+
+    .address{padding-bottom: 15px;}
+
+    /*footer 공통*/
+    .footer_nav > ul > li > ul > li:hover,
+    footer > .site_number > span:hover,
+    footer > .law > span:hover{text-decoration: underline;}
+}
+}//@media (max-width: 769px)

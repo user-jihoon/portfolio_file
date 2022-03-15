@@ -1,0 +1,1123 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600&family=Noto+Sans+KR:wght@300&family=Ubuntu+Mono:ital,wght@1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  outline: none;
+}
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+h2 {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: 2rem 0;
+  display: inline-block;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  opacity: 0;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  border-radius: 20px 0 20px 0;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+header nav.pc.tablet {
+  position: fixed;
+  z-index: 2;
+  top: 1.2rem;
+  right: 3rem;
+}
+
+header nav.pc.tablet ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 2rem;
+}
+
+header nav.pc.tablet ul li {
+  position: relative;
+  margin: 0 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header nav.pc.tablet ul li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 13px;
+  height: 2px;
+  margin: 0 20px;
+  background: #df805d;
+  cursor: default;
+}
+
+header nav.pc.tablet ul li:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #88d9ed;
+  cursor: default;
+  -webkit-animation: hover .3s linear forwards;
+          animation: hover .3s linear forwards;
+}
+
+header nav.pc.tablet ul li:last-child::after {
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+@-webkit-keyframes hover {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes hover {
+  to {
+    width: 100%;
+  }
+}
+
+header nav.mobile {
+  display: none;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#a6f7d8), color-stop(#a7bbff), color-stop(#fec051), color-stop(#FEE140), to(#FA709A));
+  background: linear-gradient(to bottom, #a6f7d8, #a7bbff, #fec051, #FEE140, #FA709A);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.2)), color-stop(75%, #21D4FD));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.2), #21D4FD 75%);
+}
+
+section article {
+  margin: 5rem 3rem;
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
+section article.on h2 {
+  -webkit-animation: h2 .3s linear forwards;
+          animation: h2 .3s linear forwards;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+
+section article.on .my_img {
+  -webkit-animation: show .5s linear forwards;
+          animation: show .5s linear forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+section article.on #profile {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+section article.on #certificate {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+section article.on #education {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+section article.on .html {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+section article.on .css {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+}
+
+section article.on .scss {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+}
+
+section article.on .jquery {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 1.9s;
+          animation-delay: 1.9s;
+}
+
+section article.on .javascript {
+  -webkit-animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+          animation: show 0.5s cubic-bezier(0.4, 0, 0.48, 1) forwards;
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
+}
+
+section article#home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  background: url(../images/coding2.jpg) no-repeat left top;
+  background-size: cover;
+}
+
+section article#home div {
+  margin-left: 55px;
+  margin-top: 4px;
+}
+
+section article#home div p {
+  margin-bottom: 9.2px;
+  font-size: 27.2px;
+  color: #888;
+}
+
+section article#home div p span:nth-of-type(1) {
+  color: #80a8f8;
+}
+
+section article#home div p span:nth-of-type(2) {
+  color: #88d9ed;
+}
+
+section article#home div p span:nth-of-type(3) {
+  color: #df805d;
+}
+
+section article#home div p span:nth-of-type(4) {
+  color: #88d9ed;
+}
+
+section article#home div p span:nth-of-type(5) {
+  color: #df805d;
+}
+
+section article#home div p:nth-of-type(7) span {
+  color: #80a8f8;
+}
+
+section article#home div p:nth-of-type(7) span:nth-of-type(2) {
+  position: relative;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+  word-break: keep-all;
+}
+
+section article#home div p:nth-of-type(7) span.cursor {
+  width: 3px;
+  height: 100%;
+  -webkit-animation: opac .9s linear infinite;
+          animation: opac .9s linear infinite;
+}
+
+@-webkit-keyframes opac {
+  from {
+    color: #fff;
+  }
+  to {
+    color: #000;
+  }
+}
+
+@keyframes opac {
+  from {
+    color: #fff;
+  }
+  to {
+    color: #000;
+  }
+}
+
+section article#home div p:nth-of-type(10) {
+  margin-left: 70px;
+}
+
+section article#home div p:nth-of-type(10) span {
+  font-size: 27.2px;
+  font-weight: normal;
+  color: #888;
+  font-family: unset;
+  color: #80a8f8;
+}
+
+section article#home div p:nth-of-type(10) span:nth-of-type(2) {
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+section article#home div p:nth-child(n+4):nth-child(-n+7) {
+  margin-left: 70px;
+}
+
+section article#home div p:nth-child(n+6):nth-child(-n+12) {
+  margin-bottom: 5px;
+}
+
+section article#about_me {
+  border-radius: 7% 25% 11% 30%;
+}
+
+section article#about_me h2::after {
+  background: #a6e0e6;
+}
+
+section article#about_me > div {
+  position: relative;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section article#about_me > div > div.my_img {
+  width: 250px;
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#about_me > div > div:nth-of-type(2) {
+  width: 660px;
+}
+
+section article#about_me > div > div:nth-of-type(2) > div {
+  padding: 1rem;
+}
+
+section article#about_me > div > div:nth-of-type(2) > div#profile {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#about_me > div > div:nth-of-type(2) > div#certificate {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#about_me > div > div:nth-of-type(2) > div#education {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#about_me > div > div:nth-of-type(2) > div h3 {
+  margin-bottom: .5rem;
+  font-size: 1.7rem;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+section article#about_me > div > div:nth-of-type(2) > div p {
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+section article#about_me > div > div:nth-of-type(2) > div p b {
+  margin-right: 1rem;
+}
+
+section article#skills {
+  border-radius: 20% 30% 50% 40%;
+}
+
+section article#skills h2::after {
+  background: #b0bbec;
+}
+
+section article#skills div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 3rem;
+}
+
+section article#skills div figure {
+  color: #000;
+}
+
+section article#skills div figure img {
+  width: 150px;
+  height: 150px;
+}
+
+section article#skills div figure figcaption {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+section article#skills div figure.html {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#skills div figure.css {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#skills div figure.scss {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#skills div figure.jquery {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#skills div figure.javascript {
+  opacity: 0;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+section article#portfolio {
+  border-radius: 5% 16% 13% 21%;
+}
+
+section article#portfolio h2::after {
+  background: #cddc39;
+}
+
+section article#portfolio .portfolio_wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-itrems: center;
+  gap: 5rem;
+}
+
+section article#portfolio .portfolio_wrap.on .portfolio_img, section article#portfolio .portfolio_wrap.on:nth-of-type(even) .portfolio_img {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+section article#portfolio .portfolio_wrap.on .portfolio_text, section article#portfolio .portfolio_wrap.on:nth-of-type(even) .portfolio_text {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+section article#portfolio .portfolio_wrap:nth-of-type(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+section article#portfolio .portfolio_wrap:hover .mobile {
+  -webkit-animation: img_hover 5s linear forwards;
+          animation: img_hover 5s linear forwards;
+}
+
+section article#portfolio .portfolio_wrap:hover .pc {
+  -webkit-animation: img_hover 5s linear forwards;
+          animation: img_hover 5s linear forwards;
+}
+
+section article#portfolio .portfolio_wrap:hover .tablet {
+  -webkit-animation: img_hover 5s linear forwards;
+          animation: img_hover 5s linear forwards;
+}
+
+section article#portfolio .portfolio_wrap:hover.pams .mobile {
+  -webkit-animation: img_hover 10s linear forwards;
+          animation: img_hover 10s linear forwards;
+}
+
+section article#portfolio .portfolio_wrap:hover.pams .pc {
+  -webkit-animation: img_hover 10s linear forwards;
+          animation: img_hover 10s linear forwards;
+}
+
+section article#portfolio .portfolio_wrap:hover.pams .tablet {
+  -webkit-animation: img_hover 10s linear forwards;
+          animation: img_hover 10s linear forwards;
+}
+
+@-webkit-keyframes img_hover {
+  from {
+    background-position: center top;
+  }
+  to {
+    background-position: center bottom;
+  }
+}
+
+@keyframes img_hover {
+  from {
+    background-position: center top;
+  }
+  to {
+    background-position: center bottom;
+  }
+}
+
+section article#portfolio .portfolio_wrap.cgv .portfolio_img .pc {
+  background: url(../images/cgv_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.pams .portfolio_img .mobile {
+  background: url(../images/pams_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.pams .portfolio_img .pc {
+  background: url(../images/pams_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.pams .portfolio_img .tablet {
+  background: url(../images/pams_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.apple .portfolio_img .mobile {
+  background: url(../images/apple_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.apple .portfolio_img .pc {
+  background: url(../images/apple_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.apple .portfolio_img .tablet {
+  background: url(../images/apple_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.nobrand .portfolio_img .pc {
+  -webkit-animation: unset;
+          animation: unset;
+  background: url(../images/nobrand_pc1.png) no-repeat;
+  background-position: center 5px;
+}
+
+section article#portfolio .portfolio_wrap.pizza .portfolio_img .pc {
+  -webkit-animation: unset;
+          animation: unset;
+  background: url(../images/pizza_pc1.png) no-repeat;
+  background-position: center top;
+  background-size: 92% 97%;
+}
+
+section article#portfolio .portfolio_wrap.system .portfolio_img .pc {
+  -webkit-animation: unset;
+          animation: unset;
+  background: url(../images/system_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.leica .portfolio_img .mobile {
+  background: url(../images/leica_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.leica .portfolio_img .pc {
+  background: url(../images/leica_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.leica .portfolio_img .tablet {
+  background: url(../images/leica_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.tottenham .portfolio_img .pc {
+  background: url(../images/tottenham_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.mc .portfolio_img .mobile {
+  background: url(../images/mc_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.mc .portfolio_img .pc {
+  background: url(../images/mc_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.mc .portfolio_img .tablet {
+  background: url(../images/mc_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.setac .portfolio_img .mobile {
+  background: url(../images/setac_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.setac .portfolio_img .pc {
+  background: url(../images/setac_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.setac .portfolio_img .tablet {
+  background: url(../images/setac_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.nike .portfolio_img .mobile {
+  background: url(../images/nike_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.nike .portfolio_img .pc {
+  background: url(../images/nike_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.nike .portfolio_img .tablet {
+  background: url(../images/nike_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.discovery .mobile {
+  background: url(../images/discovery_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.discovery .pc {
+  background: url(../images/discovery_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.discovery .tablet {
+  background: url(../images/discovery_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.adidas .mobile {
+  background: url(../images/adidas_mobile1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.adidas .pc {
+  background: url(../images/adidas_pc1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap.adidas .tablet {
+  background: url(../images/adidas_tablet1.png) no-repeat;
+  background-position: center top;
+}
+
+section article#portfolio .portfolio_wrap > div {
+  color: tomato;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_img > div {
+  position: relative;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_img > div.mobile {
+  z-index: 1;
+  margin-top: auto;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_img > div.pc {
+  z-index: 2;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_img > div.tablet {
+  z-index: 1;
+  margin-top: auto;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_img > div img {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text {
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+  color: #000;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text strong {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #ff8707;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text p b {
+  color: #000;
+  font-size: 1.2rem;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text button {
+  position: relative;
+  margin-top: 1.2rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: transparent;
+  overflow: hidden;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text button a {
+  display: block;
+  padding: .5rem 1.7rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text button:hover a {
+  color: #fff;
+}
+
+section article#portfolio .portfolio_wrap > div.portfolio_text button:hover::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  -webkit-animation: bg .15s linear forwards;
+          animation: bg .15s linear forwards;
+}
+
+@-webkit-keyframes bg {
+  to {
+    left: 0;
+  }
+}
+
+@keyframes bg {
+  to {
+    left: 0;
+  }
+}
+
+section article#portfolio .portfolio_wrap:nth-of-type(even) .portfolio_img {
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+}
+
+section article#portfolio .portfolio_wrap:nth-of-type(even) .portfolio_text {
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+}
+
+@-webkit-keyframes h2 {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes h2 {
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes show {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+footer {
+  padding: 1rem;
+  background: #fff;
+}
+
+footer p {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  word-break: keep-all;
+}
+
+footer p#copy {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+@media all and (max-width: 767px) {
+  header nav.pc.tablet {
+    display: none;
+  }
+  header nav.mobile {
+    display: block;
+  }
+  header nav.mobile #hamburger {
+    position: fixed;
+    z-index: 3;
+    right: 1rem;
+    top: 1rem;
+    width: 28px;
+    height: 10px;
+    cursor: pointer;
+  }
+  header nav.mobile #hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #000;
+    display: block;
+  }
+  header nav.mobile #hamburger span:nth-of-type(1) {
+    top: 0;
+  }
+  header nav.mobile #hamburger span:nth-of-type(2) {
+    bottom: 0;
+  }
+  header nav.mobile #hamburger.on span {
+    background-color: #eee;
+  }
+  header nav.mobile #hamburger.on span:nth-of-type(1) {
+    -webkit-animation: hamburger1 .5s linear forwards;
+            animation: hamburger1 .5s linear forwards;
+  }
+  header nav.mobile #hamburger.on span:nth-of-type(2) {
+    -webkit-animation: hamburger2 .5s linear forwards;
+            animation: hamburger2 .5s linear forwards;
+  }
+  @-webkit-keyframes hamburger1 {
+    50% {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+    }
+    100% {
+      top: 50%;
+      -webkit-transform: translateY(-50%) rotate(45deg);
+              transform: translateY(-50%) rotate(45deg);
+    }
+  }
+  @keyframes hamburger1 {
+    50% {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+    }
+    100% {
+      top: 50%;
+      -webkit-transform: translateY(-50%) rotate(45deg);
+              transform: translateY(-50%) rotate(45deg);
+    }
+  }
+  @-webkit-keyframes hamburger2 {
+    50% {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+    }
+    100% {
+      top: 50%;
+      -webkit-transform: translateY(-50%) rotate(-45deg);
+              transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+  @keyframes hamburger2 {
+    50% {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+    }
+    100% {
+      top: 50%;
+      -webkit-transform: translateY(-50%) rotate(-45deg);
+              transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+  header nav.mobile .mobile_nav {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #222;
+  }
+  header nav.mobile .mobile_nav ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  header nav.mobile .mobile_nav ul li {
+    margin: 1em;
+    color: #eee;
+    text-align: center;
+    font-size: 7vw;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    -webkit-transition: .2s;
+    transition: .2s;
+    -webkit-animation: mobile_nav 0.5s cubic-bezier(0, 0, 0.27, 0.97) forwards;
+            animation: mobile_nav 0.5s cubic-bezier(0, 0, 0.27, 0.97) forwards;
+  }
+  header nav.mobile .mobile_nav ul li:hover {
+    color: #fff;
+    text-shadow: 0 0 3px;
+  }
+  header nav.mobile .mobile_nav ul li:nth-of-type(1) {
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+  }
+  header nav.mobile .mobile_nav ul li:nth-of-type(2) {
+    -webkit-animation-delay: 1.3s;
+            animation-delay: 1.3s;
+  }
+  header nav.mobile .mobile_nav ul li:nth-of-type(3) {
+    -webkit-animation-delay: 1.6s;
+            animation-delay: 1.6s;
+  }
+  header nav.mobile .mobile_nav ul li:nth-of-type(4) {
+    -webkit-animation-delay: 1.9s;
+            animation-delay: 1.9s;
+  }
+  @-webkit-keyframes mobile_nav {
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes mobile_nav {
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  header nav.mobile .mobile_nav.on {
+    display: block;
+  }
+  .pc {
+    background-size: cover;
+  }
+  section article {
+    margin: 5rem 1rem;
+    padding: 0;
+  }
+  section article#home div p {
+    font-size: 1rem;
+  }
+  section article#home div p:nth-of-type(7) span:nth-of-type(2) {
+    font-size: 1.5rem;
+  }
+  section article#home div p:nth-of-type(10) span {
+    font-size: 1rem;
+  }
+  section article#home div p:nth-of-type(10) span:nth-of-type(2) {
+    font-size: 1.5rem;
+  }
+  section article#about_me {
+    border-radius: 10px;
+  }
+  section article#about_me > div {
+    gap: 1rem;
+  }
+  section article#about_me > div div:nth-of-type(2) div h3 {
+    font-size: 1.5rem;
+  }
+  section article#about_me > div div:nth-of-type(2) div p {
+    font-size: 1.1rem;
+  }
+  section article#skills {
+    border-radius: 10px;
+  }
+  section article#portfolio {
+    border-radius: 10px;
+  }
+  section article#portfolio .portfolio_wrap {
+    padding: 5rem 0;
+  }
+  section article#portfolio .portfolio_wrap > div.portfolio_img > div.pc {
+    background-size: cover !important;
+  }
+  section article#portfolio .portfolio_wrap > div.portfolio_img > div.tablet {
+    background-size: cover !important;
+  }
+  section article#portfolio .portfolio_wrap > div.portfolio_text strong {
+    font-size: 1.3rem;
+  }
+  section article#portfolio .portfolio_wrap > div.portfolio_text p b {
+    font-size: 1rem;
+  }
+  section article#portfolio .portfolio_wrap > div.portfolio_text button {
+    margin-top: 0.4rem;
+  }
+  section article#portfolio .portfolio_wrap > div.portfolio_text button a {
+    padding: 0.5rem 1rem;
+    font-size: .9rem;
+  }
+  @-webkit-keyframes img_hover {
+    from {
+      background-position: center top;
+    }
+    to {
+      background-position: center top;
+    }
+  }
+  @keyframes img_hover {
+    from {
+      background-position: center top;
+    }
+    to {
+      background-position: center top;
+    }
+  }
+  footer p {
+    font-size: 1rem;
+  }
+  footer p#copy {
+    font-size: .7rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

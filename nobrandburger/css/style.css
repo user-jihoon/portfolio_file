@@ -1,0 +1,562 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Pretendard-ExtraBold';
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, li {
+  text-decoration: none;
+  list-style: none;
+}
+
+img {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  font-family: 'Pretendard-ExtraBold';
+}
+
+#wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+
+/*헤더*/
+/*헤더*/
+/*헤더*/
+header {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 850px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header nav ul {
+  display: inline-block;
+}
+
+header nav ul li {
+  position: relative;
+  display: inline-block;
+  margin: 0 25px;
+  font-size: 17px;
+  cursor: pointer;
+  font-family: 'Pretendard-ExtraBold';
+}
+
+header nav ul li.on::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #fabe00;
+  -webkit-animation: nav_li 0.3s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: nav_li 0.3s cubic-bezier(0, 0, 0.25, 1) forwards;
+}
+
+@-webkit-keyframes nav_li {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes nav_li {
+  to {
+    width: 100%;
+  }
+}
+
+header nav h1 {
+  width: 200px;
+  margin: 0 3%;
+}
+
+div {
+  /*메인 백그라운드*/
+  /*메인 백그라운드*/
+  /*메인 백그라운드*/
+}
+
+div.main_bg {
+  position: relative;
+  top: 56%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: -250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section article {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+section article h2 {
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+  opacity: 0;
+}
+
+section article.story_page {
+  top: -100%;
+  left: -100%;
+}
+
+section article.story_page div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 850px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section article.story_page div h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 34px;
+}
+
+section article.story_page div h2 span {
+  padding-left: 9%;
+  font-size: 40px;
+}
+
+section article.story_page div p {
+  font-size: 18px;
+  line-height: 1.3em;
+  word-break: keep-all;
+}
+
+section article.story_page div p:nth-of-type(1) {
+  height: 310px;
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-transform: translateX(120px);
+          transform: translateX(120px);
+  opacity: 0;
+}
+
+section article.story_page div p:nth-of-type(1) img {
+  float: left;
+  width: 370px;
+  height: 310px;
+}
+
+section article.story_page div p:nth-of-type(2) {
+  margin-top: 3%;
+  height: 215px;
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-transform: translateX(-120px);
+          transform: translateX(-120px);
+  opacity: 0;
+}
+
+section article.story_page div p:nth-of-type(2) img {
+  float: right;
+  width: 385px;
+  height: 215px;
+  border-radius: 5px;
+}
+
+section article.story_page div p strong {
+  display: block;
+  margin-bottom: 2%;
+  font-size: 29px;
+}
+
+@-webkit-keyframes translate {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes translate {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+section article.menu_page {
+  top: -100%;
+  left: 100%;
+  /*right: -100%;*/
+  /*right로 움직이기 때문에 여백으로 남아있는 left값으로 인해 min-width가 적용이 안되고 밀려나는 현상이 생겨서 바꿈*/
+}
+
+section article.menu_page > div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1000px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+section article.menu_page > div h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 4%;
+  font-size: 34px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section article.menu_page > div h2 span {
+  padding-left: 9%;
+  font-size: 40px;
+}
+
+section article.menu_page > div ul.menu_type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 36px;
+  margin: 2% 0 1%;
+  font-size: 19px;
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+  opacity: 0;
+}
+
+section article.menu_page > div ul.menu_type li {
+  cursor: pointer;
+}
+
+section article.menu_page > div ul.menu_type li.on img:nth-of-type(1) {
+  display: none;
+}
+
+section article.menu_page > div ul.menu_type li.on img:nth-of-type(2) {
+  display: block;
+}
+
+section article.menu_page > div ul.menu_type li img:nth-of-type(2) {
+  display: none;
+}
+
+section article.menu_page > div div ul {
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section article.menu_page > div div ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: calc(20% - 8px);
+  height: 33.3%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section article.menu_page > div div ul li span {
+  font-size: 14px;
+}
+
+section article.menu_page > div div ul.on {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  gap: 10px;
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+  opacity: 0;
+}
+
+section article.store_page {
+  top: unset;
+  bottom: -100%;
+  left: -100%;
+  /*right: -100%;*/
+  /*right로 움직이기 때문에 여백으로 남아있는 left값으로 인해 min-width가 적용이 안되고 밀려나는 현상이 생겨서 바꿈*/
+}
+
+section article.store_page > div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1000px;
+  margin: 0 auto;
+}
+
+section article.store_page > div h2 {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1%;
+  font-size: 34px;
+}
+
+section article.store_page > div h2 span {
+  padding-left: 9%;
+  font-size: 40px;
+}
+
+section article.store_page > div h2 span.reset {
+  position: absolute;
+  right: 1%;
+  bottom: 0;
+  font-size: 17px;
+  color: #000000;
+  text-shadow: 0px 0px 2px #fabe01;
+  cursor: pointer;
+}
+
+section article.store_page > div div#map {
+  position: relative;
+  z-index: 500;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: 5px;
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  opacity: 0;
+}
+
+section article.store_page > div ul.store_map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 47px;
+  margin-top: 1%;
+  -webkit-animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+          animation: translate 1s cubic-bezier(0, 0, 0.25, 1) forwards;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+  opacity: 0;
+}
+
+section article.store_page > div ul.store_map li {
+  cursor: pointer;
+}
+
+section article.store_page > div ul.store_map li:nth-child(even) {
+  -webkit-transform: translateY(9px);
+          transform: translateY(9px);
+}
+
+section article.event_page {
+  top: unset;
+  bottom: -100%;
+  left: 100%;
+}
+
+section article.event_page div {
+  position: relative;
+  top: 55%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 850px;
+  margin: 0 auto;
+}
+
+section article.event_page div h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1%;
+  font-size: 34px;
+}
+
+section article.event_page div h2 span {
+  padding-left: 9%;
+  font-size: 40px;
+}
+
+section article.event_page div ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 440px;
+}
+
+section article.event_page div ul li {
+  width: 32%;
+  height: 47%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+}
+
+section article.event_page div ul li img {
+  border-radius: 5px;
+}
+
+@media (min-width: 0px) and (max-width: 1500px) {
+  section article.story_page > div {
+    top: 55%;
+  }
+  section article.story_page > div h2 {
+    font-size: 24px;
+  }
+  section article.story_page > div h2 span {
+    font-size: 26px;
+  }
+  section article.story_page > div p:nth-of-type(1) {
+    height: 190px;
+    font-size: 16px;
+  }
+  section article.story_page > div p:nth-of-type(1) img {
+    width: 250px;
+    height: 190px;
+  }
+  section article.story_page > div p:nth-of-type(2) {
+    height: 165px;
+    font-size: 16px;
+  }
+  section article.story_page > div p:nth-of-type(2) img {
+    width: 300px;
+    height: 165px;
+  }
+  section article.menu_page div {
+    top: 55%;
+    width: 850px;
+  }
+  section article.menu_page div h2 {
+    font-size: 24px;
+  }
+  section article.menu_page div h2 span {
+    font-size: 26px;
+  }
+  section article.store_page div {
+    top: 52%;
+    width: 830px;
+  }
+  section article.store_page div h2 {
+    font-size: 24px;
+  }
+  section article.store_page div h2 span {
+    font-size: 26px;
+  }
+  section article.event_page div h2 {
+    font-size: 24px;
+  }
+  section article.event_page div h2 span {
+    font-size: 26px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
