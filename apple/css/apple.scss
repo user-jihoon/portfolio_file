@@ -298,8 +298,8 @@ section{
     box-sizing: border-box;
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-gap: 15px;
     background: #efefef;
 
@@ -558,8 +558,8 @@ nav > ul > li{display: none;}
 /*컨텐츠*/ /*컨텐츠*/ /*컨텐츠*/
 section{
 	height: auto;
-	grid-template-columns: repeat(1,1fr);
-	grid-template-rows: repeat(5,459.5px);
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: repeat(5, 459.5px);
 
     article{
         border-radius: 0;
