@@ -270,7 +270,7 @@ section {
 }
 
 section article {
-
+  /*article 4번째*/
 }
 
 section article.main_banner {
@@ -621,8 +621,8 @@ section article:nth-of-type(5) div h3 {
   opacity: 0;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
-  -webkit-transition: 1.5;
-  transition: 1.5;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
 }
 
 section article:nth-of-type(5) div h3::after {
