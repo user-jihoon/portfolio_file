@@ -1006,12 +1006,6 @@ footer > p{
   	background-color: #aaa; 
   	border-radius:30px;
 } 
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment{
-  	display:block;
-  	height: 0px;
-  	background-color: #000;
-} 
 ::-webkit-scrollbar-corner{background-color: red;} 
 
 }/*@media (max-width: 769px)*/
