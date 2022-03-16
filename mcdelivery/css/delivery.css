@@ -483,12 +483,6 @@ footer > p{
 ::-webkit-scrollbar {width: 10px;}/* 스크롤바 전체 영역 */
 ::-webkit-scrollbar-track {border-radius: 10px;}/* 스크롤이 움직이는 영역  */
 ::-webkit-scrollbar-thumb {background-color: #931f1f; border-radius:30px;}/*  스크롤  */ 
-::-webkit-scrollbar-button:start:decrement, 
-::-webkit-scrollbar-button:end:increment {
-    display:block;
-    height: 0px;
-    background-color: #000;
-}/*  스크롤의 화살표가 포함된 영역   */ 
 ::-webkit-scrollbar-corner {background-color: red;}/* 상하+좌우 스크롤이 만나는 공간 */ 
 
 
